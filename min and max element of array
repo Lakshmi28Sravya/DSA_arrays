@@ -1,0 +1,27 @@
+def min_max(low,high,arr):
+    mi=a[low]
+    ma=a[low]
+    if low==high:
+        mi=a[low]
+        ma=a[low]
+        return(mi,ma)
+    elif low+1==high:
+        if a[high]>a[low]:
+            ma=a[high]
+            mi=a[low]
+        else:
+            ma=a[low]
+            mi=a[high]
+        return (mi,ma)
+    else:
+        mid=(low+high)//2
+        mi1,ma1=min_max(low,mid,arr)
+        mi2,ma2=min_max(mid+1,high,arr)
+        return (min(mi1,mi2),max(ma1,ma2))
+    
+
+a=list(map(int,input().split()))
+h=len(a)-1
+l=0
+mi,ma=min_max(l,h,a)
+print(mi,ma)
