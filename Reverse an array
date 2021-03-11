@@ -1,0 +1,10 @@
+def Reverse_list(List,low,high):
+    while low<high:
+        List[low],List[high]=List[high],List[low]
+        low+=1 
+        high-=1 
+
+List=list(map(int,input().split()))
+n=len(List)-1
+Reverse_list(List,0,n)
+print(*List)
